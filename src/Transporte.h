@@ -22,6 +22,7 @@ public:
 	bool metodoCantoNoroeste();
 
 	void imprimirMatriz();
+	int getValorZ();
 
 
 private:

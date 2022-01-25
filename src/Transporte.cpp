@@ -76,7 +76,7 @@ bool Transporte::metodoCantoNoroeste() {
 	for (int i = 0; i < this->linhas; ++i) {
 		for (int j = 0; j < this->colunas; ++j) {
 
-			if(matrizTabular[i][j].getVariavelDescisao() == -999)
+			if (matrizTabular[i][j].getVariavelDescisao() == -999)
 				continue;
 
 			if (capacidades[i] >= demandas[j]) {
@@ -110,10 +110,23 @@ void Transporte::imprimirMatriz() {
 	for (int i = 0; i < this->linhas; ++i) {
 		for (int j = 0; j < this->colunas; ++j) {
 			std::cout << "(" << matrizTabular[i][j].getCustoUnitario() << ";"
-					<< matrizTabular[i][j].getVariavelDescisao() << ")\t";
+					<< matrizTabular[i][j].getVariavelDescisao() << ")       ";
 		}
 		std::cout << "\n";
 	}
+}
+
+int Transporte::getValorZ() {
+
+	int soma = 0;
+	for (int i = 0; i < this->linhas; ++i) {
+		for (int j = 0; j < this->colunas; ++j) {
+			if(matrizTabular[i][j].getVariavelDescisao() != -999)
+				soma += (matrizTabular[i][j].getCustoUnitario() * matrizTabular[i][j].getVariavelDescisao());
+		}
+	}
+
+	return soma;
 }
 
 Transporte::~Transporte() {

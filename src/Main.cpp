@@ -20,7 +20,7 @@ int main() {
 	t1.metodoCantoNoroeste();
 	t1.imprimirMatriz();
 
-
+	cout << "Valor de Z: " << t1.getValorZ() << endl;
 
 	return 0;
 }
